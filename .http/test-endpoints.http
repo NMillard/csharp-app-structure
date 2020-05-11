@@ -1,0 +1,15 @@
+POST https://localhost:5001/api/authors/CreateAuthor
+Content-Type: application/json
+
+{
+  "name": "Nick M"
+}
+
+
+###
+GET https://localhost:5001/api/authors/GetAuthors
+Accept: application/json
+
+###
+
+
