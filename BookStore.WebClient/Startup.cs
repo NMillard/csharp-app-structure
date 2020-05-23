@@ -1,3 +1,4 @@
+using System;
 using BookStore.Application.Extensions;
 using BookStore.DataLayer.Extensions;
 using Microsoft.AspNetCore.Builder;
@@ -22,7 +23,9 @@ namespace BookStore.WebClient {
             services.AddBookStoreDatabase(Configuration.GetConnectionString("default"))
                 .AddRepositories();
             
-            services.AddEvents();
+            services.AddEvents(appEvents => {
+                appEvents.AuthorAdded += (sender, args) => Console.WriteLine($"{sender?.GetType().FullName} An author was added");
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {

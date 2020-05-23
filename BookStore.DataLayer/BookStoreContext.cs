@@ -2,8 +2,8 @@ using BookStore.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.DataLayer {
-    public class BookStoreContext : DbContext {
-        internal BookStoreContext(DbContextOptions options) : base(options) {
+    internal class BookStoreContext : DbContext {
+        public BookStoreContext(DbContextOptions options) : base(options) {
         }
 
         public DbSet<Author> Authors { get; set; }
